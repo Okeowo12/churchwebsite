@@ -1,0 +1,190 @@
+
+
+.navbar {
+  margin: 0 auto;
+  display: table;
+  text-decoration: double;
+}
+
+.navbar-nav {
+  margin: 10px 10px 10px 10px;
+  padding: 5px;
+  text-decoration: none;
+  list-style: none;
+}
+.navbar-nav .nav-item {
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+ul {
+  list-style: none;
+}
+ul li {
+  list-style: none;
+}
+.class-nav{
+  position: absolute;
+  top: 0;
+  margin-left: 102rem; 
+}
+
+
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  list-style: none;
+}
+
+section{
+  background-image: url(../images/churchpic1.jpg);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .main-heading {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .upcoming-events,
+  .church-sermons,
+  .recent-posts {
+    margin-top: 20px;
+  }
+  
+  .event-item,
+  .sermon-item,
+  .post-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+  }
+  
+  .event-details,
+  .sermon-details,
+  .post-details {
+    font-size: 14px;
+    color: #777;
+  }
+
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: black;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+input[type="submit"] {
+  background-color: #0095f6;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+input[type="submit"]:hover {
+  background-color: #0077c0;
+}
+
+
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+
+.message-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.message-container .btn {
+  padding: 5px 15px;
+  margin-top: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.btn-success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-info {
+  background-color: #2196F3;
+  color: white;
+}
+
+.container{
+  max-width: 350px;
+  text-align: center;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+}
+
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }     
+    
+  .row {
+    margin-bottom: 5px;
+}
+
+.col-sm-2 {
+  width: 100%;
+}
+
+
+.love{
+  margin-bottom: 150px;
+}
+
+
+.body {
+  color: #333
+}
+

@@ -1,0 +1,32 @@
+{% extends 'churchapp/base.html' %}
+
+{% block title%} {{section.title}} {% endblock%}
+{% load static %}
+{% block content %}
+  <section class="lp">
+
+  <style>
+ 
+
+ 
+</style>
+  <a href="/register">Register</a>
+<a href="/signin">Signin</a>
+
+            <h1>{{section.title}}</h1>
+
+            {% for story in story_list %}
+                <h2>
+                    <a href="{{ story.get_absolute_url}}">
+                    {{ story.headline|upper}}
+                    </a>
+                </h2>
+                <p>{{ story.tease|truncatewords:"100"}}</p>
+            {% endfor %}
+
+     <h3>Sign In For More Info </h3> 
+     </section>      
+{% endblock  %}
+
+    
+

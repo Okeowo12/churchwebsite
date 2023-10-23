@@ -1,0 +1,49 @@
+{% extends 'churchapp/base.html' %}
+{% load static%}
+{% block title %} {{ section.title }} {% endblock %}
+{% block content%}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid text-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sermons' %}">Weekly Message</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'media' %}">Media</a>
+                    </li>
+                </ul>
+               
+            </div>
+        </div>
+    </nav>
+  <div class="class-nav">
+  <div class="logout"><a  href="/logout">Log out</a> </div>
+  </div>
+
+  <div>  
+{% for recent_uload in recent_uloads %}
+{% if recent_uload %}
+<video controls="controls" preload="preload"  style="width: 250px">
+    <source src="{{ recent_uload.video.url }}" type="video/mp4"></source> 
+</video><br>
+     <audio controls="controls" preload="preload"  style="width: 250px">
+        <source src="{{ recent_uload.audio.url }}" type="audio/mp3"></source>
+    </audio>
+   {% else %}
+<h6>No file</h6>
+  {% endif %} 
+{% endfor %}
+</div>
+{% endblock %}
+

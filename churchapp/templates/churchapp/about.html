@@ -1,0 +1,48 @@
+{% extends 'churchapp/base.html' %}
+{% block content %}
+{% load static %}
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid text-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sermons' %}">Weekly Message</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'media' %}">Media</a>
+                    </li>
+                </ul>
+               
+            </div>
+        </div>
+    </nav>
+   
+<div>
+<div class="love">  First Christian Church was founded in 1999 by Apostle Michael Jones who felt a calling to create a place of worship and community in their town. Initially meeting in a small community center, the church quickly grew as more families and individuals joined the congregation. Over the years, the church has played a vital role in the spiritual and social life of people in and allover the world. <div><br><strong>Location:</strong>
+First Christian Church is located in the Mega city of Lagos, Nigeria. It is situated in the heart of the city's central business district, making it easily accessible to both residents and visitors. The church's address is:
+<h4>123 Ikoyi VI,
+Lagos, Nigeria.<h4></div><strong>Doctrine and Beliefs:</strong>
+First Christian Church is a diverse and welcoming Christian congregation that adheres to any set of core beliefs rooted in the Christian faith.<div><br><strong>Community Outreach:</strong> The church is deeply committed to serving its local community through various outreach programs, including feeding the hungry, providing education, and supporting the less fortunate.</div><br><strong>Unity:</strong> New Hope Community Church embraces diversity and unity among its members, welcoming people from various cultural backgrounds and walks of life. <div><br><strong>Salvation:</strong> First Christian Church teaches that salvation is a gift from God and is received through faith in Jesus Christ as Lord and Savior.</div><br><strong>History:</strong><br>
+First Christian Church has a rich history that dates back to the early 20th century. It was founded by  Apostle Michael Jones who is a Christian missionary who came to Nigeria. to spread the message of love and hope. Originally, the church met in small gatherings and under trees in the city's outskirts.
+
+Over the years, as the congregation grew, the church acquired its current location on Serenity Avenue. It has since become a cornerstone of the communities and Country, playing a vital role in the spiritual and social life of Nigeria.
+
+The church's history is marked by a commitment to spiritual growth, community development, and a passion for spreading the Gospel. It has weathered various challenges, including political changes and social transitions, all while maintaining its focus on faith, hope, and love.
+
+Today, First Christian Church continues to thrive, serving as a place of worship, support, and inspiration for the people of Nairobi. It remains deeply connected to its African roots while embracing the global Christian community.<div><br><strong>Church Location:</strong><h4>123 Ikoyi VI Opposite Government House,
+Lagos, Nigeria.<h4></div>
+</div>
+
+
+</div>
+{% endblock content %}

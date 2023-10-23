@@ -1,0 +1,46 @@
+{% extends 'churchapp/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% load static %}
+
+
+ 
+{% block content %}
+<section>
+<style>
+section{
+  background: linear-gradient(135deg, #00ced1, #0000ff);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url("{% static 'images/FCC1.jpg' %}");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:fixed ;
+
+ }
+</style>
+<div class="login-container">
+        <h1> Church Login Page</h1>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    {% if message.tags == 'success' %}
+                        <li class="btn btn-success">{{ message }}</li>
+                    {% elif message.tags == 'info' %}
+                        <li class="btn btn-info">{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method="POST" action="/authenticate">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" placeholder="Enter Username">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Enter password" ''>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+  </section>
+{% endblock  %}

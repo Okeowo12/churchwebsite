@@ -1,0 +1,58 @@
+{% extends 'churchapp/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% load static %}
+
+{% block content %}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid text-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sermons' %}">Weekly Message</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'media' %}">Media</a>
+                    </li>
+                </ul>
+               
+            </div>
+        </div>
+    </nav>
+  <div class="class-nav">
+  <div class="logout"><a  href="/logout">Log out</a> </div>
+  </div>  
+
+
+  
+  <h2>Church Sermons</h2>
+  <ul>
+    {% for recent_sermon in recent_sermons %}
+     
+        <strong>TITLE:</strong>{{ recent_sermon.title }}<br>
+        <strong>Preacher:</strong> {{ recent_sermon.preacher }}<br>
+        <strong>Date:</strong>{{ recent_sermon.date|date:"F j, Y" }}<br>
+    <video controls="controls" preload="preload"  style="width: 700px">
+    {% if recent_sermon.video %}
+        <source src="{{ recent_sermon.video.url }}" type="video/mp4"></source>
+    {% endif %}
+</video><br>
+     <audio controls="controls" preload="preload" style="width:255px"> 
+        <source src="{{ recent_sermon.audio.url }}" type="audio/mp3"></source>
+     </audio><br>      
+    <p><strong>Message:</strong>{{recent_sermon.message }}</p>
+<p><a href="{{ recent_sermon.download }}" download>Download Sermon</a></p>
+      </li>
+ 
+    {% endfor %}
+  </ul>
+{% endblock %}

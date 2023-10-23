@@ -1,0 +1,140 @@
+
+ {% extends 'churchapp/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% load static %}
+
+{% block content %}
+
+
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid text-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Weekly Message</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'video' %}">Media</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
+  <h1>Welcome to First Christian Church </h1>
+  
+  <h2>Upcoming Events</h2>
+  <ul>
+    {% for event in recent_events %}
+      <li>
+        <strong>{{ event.title }}</strong><br>
+        {{ event.date|date:"F j, Y" }} at {{ event.location }}
+      </li>
+    {% endfor %}
+  </ul>
+  
+  <h2>Church Sermons</h2>
+  <ul>
+    {% for sermon in recent_sermons %}
+      
+        <strong>{{ sermon.title }}</strong><br>
+        Preacher: {{ sermon.preacher }}<br>
+        Date: {{ sermon.date|date:"F j, Y" }}<br>
+        <img class="image" src="{{ sermon.image.url }}" alt="{{ sermon.name }}" style="width: 250px">
+        <a href="{{ media_file.file.url }}" target="_blank">{{ media_file.file.name }}</a>
+        <a href="{{ sermon.audio_file.url }}" download>Download Sermon</a>
+        <audio controls>
+                    <source src="{{ sermon.file.url }}" type="{{ sermon.file.content_type }}">
+                    
+                </audio>
+
+      <video controls>
+                    <source src="{{ sermon.file.url }}" type="{{ video.file.content_type }}">
+          
+                </video>                             
+
+      </li>
+    {% endfor %}
+  </ul>
+  
+  <h2>Recent Posts</h2>
+  <ul>
+    {% for post in all_sermons %}
+      <li>
+        <strong>{{ post.title }}</strong><br>
+        Author: {{ post.author }}<br>
+        Date: {{ post.date|date:"F j, Y" }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+ <audio controls><a href="{{ sermon.url }}" download>Download Sermon</a> </audio> 
+       <video controls><a href="{{ sermon.file.url }}" target="_blank">{{ sermon.file.name }}</a>
+        </video> 
+
+
+
+
+def home(request):
+    # Fetch recent events, sermons, and blog posts
+    recent_events = Event.objects.all().order_by('-date')[:3]
+    recent_sermons = Sermon.objects.all().order_by('-date')[:3]
+    recent_posts = BlogPost.objects.all().order_by('-date')[:3]
+
+    context = {
+        'recent_events': recent_events,
+        'recent_sermons': recent_sermons,
+        'recent_posts': recent_posts,
+    }
+    return render(request, 'church_app/home.html', context)
+    
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    date = models.DateTimeField()
+    location = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='events/', null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
+
+     <h1>Upcoming Events</h1>
+  <ul>
+    {% for event in all_events %}
+      <li>
+        <strong>{{ event.title }}</strong><br>
+        {{ event.date|date:"F j, Y" }} at {{ event.location }}<br>
+        {{ event.description }}
+      </li>
+    {% endfor %}
+
+
+
+
+<video controls="controls" preload="preload" >
+    {% if recent_sermon.video %}
+        <source src="{{ recent_sermon.video.url }}" type="video/mp4"></source>
+    {% else %}
+        <p>No video available</p>
+    {% endif %}
+</video>
+
+{% if recent_sermon.audio %}
+
+
+{% endif %}

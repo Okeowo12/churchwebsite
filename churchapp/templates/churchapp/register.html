@@ -1,0 +1,69 @@
+{% extends 'churchapp/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% load static %}
+
+{% block content %}
+<div style="padding:0px 60px 0px 60px;"> 
+
+<style>
+ 
+</style>
+
+<form  method="POST" action="/process/">
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+    {% if message.tags == 'success' %}
+    <li class="btn btn-success">{{ message }}</li>
+    {% elif message.tags == 'info' %}
+    <li class="btn btn-info">{{ message}}</li>
+     {% endif %}
+  {% endfor %}
+  </ul>
+  {% endif %}
+
+    {% csrf_token %}
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form action="/process/" method="POST">
+            <div class="row">
+                <div class="col-sm-2">
+                    <input  type="text" name="fname" id="fname" placeholder="First Name" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <input  type="text" name="lname" id="lname" placeholder="Last Name" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <input type="text" name="username" id="username" placeholder="Username" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <input   type="email" name="email" id="email" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <input  type="password" name="c_password" id="c_password" placeholder="Confirm Password" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <input  type="submit" value="Register">
+                </div>
+            </div>
+        </form>
+    </div>
+
+     
+   
+{% endblock  %}
